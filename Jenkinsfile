@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label ('newSlave')
+    }
 
     stages {
         stage('Hello') {
@@ -9,8 +11,7 @@ pipeline {
         }
         stage('Java') {
             steps {
-                sh '''javac Hello.java
-                java Hello'''
+                sh '''java Hello.java'''
             }
         }
     }
